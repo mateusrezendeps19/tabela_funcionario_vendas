@@ -1,0 +1,20 @@
+Table Funcionario [headercolor: #175e7a] {
+	id integer [ pk, increment, not null ]
+	nome varchar(100)
+	cpf numeric(11)
+	funcao varchar(100)
+	data date
+	escala varchar(3)
+}
+
+Table Vendas [headercolor: #175e7a] {
+	id integer [ pk, increment, not null ]
+	produto varchar(255)
+	valor integer
+	data date
+	id_funcionario integer
+}
+
+Ref fk_Vendas_id_funcionario_Funcionario {
+	Vendas.id_funcionario > Funcionario.id [ delete: no action, update: no action ]
+}
